@@ -1,7 +1,8 @@
 import dotenv from 'dotenv';
-dotenv.config();
 import express from 'express';
 import axios from 'axios';
+
+dotenv.config();
 
 const app = express();
 
@@ -33,5 +34,7 @@ app.post('/update-cobj', (req, res) => {
 	res.redirect('/');
 });
 
-// * Localhost
+/**
+ * Localhost
+ */
 app.listen(3000, () => console.log('Listening on http://localhost:3000'));

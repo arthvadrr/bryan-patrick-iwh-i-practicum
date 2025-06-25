@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  form(action="/update-cobj" method="POST")
+    div
+      label(for="first_name") First Name:
+      input(type="text" name="first_name" id="first_name" required)
+    div
+      label(for="last_name") Last Name:
+      input(type="text" name="last_name" id="last_name" required)
+    div
+      label(for="team") Team:
+      input(type="text" name="team" id="team" required)
+    div
+      button(type="submit") Create Hockey Player

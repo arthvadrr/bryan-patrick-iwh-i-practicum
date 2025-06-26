@@ -5,13 +5,13 @@ block content
   a(href="/") Back to Home
   form(action="/update-cobj" method="POST")
     div
-      label(for="first_name") First Name:
-      input(type="text" name="first_name" id="first_name" required)
+      label(for="name") Name:
+      input(type="text" name="name" id="name" required)
     div
-      label(for="last_name") Last Name:
-      input(type="text" name="last_name" id="last_name" required)
+      label(for="goals") Goals:
+      input(type="number" name="goals" id="goals" required min="0")
     div
-      label(for="team") Team:
-      input(type="text" name="team" id="team" required)
+      label(for="assists") Assists:
+      input(type="number" name="assists" id="assists" required min="0")
     div
       button(type="submit") Create Hockey Player

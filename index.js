@@ -55,9 +55,9 @@ app.post('/update-cobj', async (req, res) => {
 	};
 	const newPlayer = {
 		properties: {
-			first_name: req.body.first_name,
-			last_name: req.body.last_name,
-			team: req.body.team,
+			name: req.body.name,
+			goals: req.body.goals,
+			assists: req.body.assists,
 		},
 	};
 	try {
@@ -65,6 +65,7 @@ app.post('/update-cobj', async (req, res) => {
 		res.redirect('/');
 	} catch (error) {
 		console.error(error);
+		res.redirect('/update-cobj');
 	}
 });
 

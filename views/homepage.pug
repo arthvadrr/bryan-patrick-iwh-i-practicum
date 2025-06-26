@@ -7,14 +7,14 @@ block content
     table()
       thead
         tr
-          th First Name
-          th Last Name
-          th Team
+          th Name
+          th Goals
+          th Assists
       tbody
         each player in data
           tr
-            td= player.properties.first_name
-            td= player.properties.last_name
-            td= player.properties.team
+            td= player.properties.name
+            td= player.properties.goals
+            td= player.properties.assists
   else
     p No hockey players found.

@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1= title
+  a(href="/update-cobj") Add to this table
+  if data.length
+    table()
+      thead
+        tr
+          th First Name
+          th Last Name
+          th Team
+      tbody
+        each player in data
+          tr
+            td= player.properties.first_name
+            td= player.properties.last_name
+            td= player.properties.team
+  else
+    p No hockey players found.

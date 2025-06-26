@@ -21,7 +21,9 @@ const PRIVATE_APP_ACCESS = process.env.PRIVATE_APP_ACCESS;
  * Render form to create/update custom object
  */
 app.get('/update-cobj', (req, res) => {
-	res.render('updates', { title: 'Create/Update Custom Object' });
+	res.render('updates', {
+		title: 'Update Custom Object Form | Integrating With HubSpot I Practicum',
+	});
 });
 
 /**
@@ -29,17 +31,18 @@ app.get('/update-cobj', (req, res) => {
  */
 app.get('/', async (req, res) => {
 	const url =
-		'https://api.hubapi.com/crm/v3/objects/hockey_player?properties=first_name,last_name,team';
+		'https://api.hubapi.com/crm/v3/objects/hockey_players?properties=name,goals,assists';
 	const headers = {
 		Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
 		'Content-Type': 'application/json',
 	};
 	try {
 		const resp = await axios.get(url, { headers });
+		console.log('HubSpot API response:', JSON.stringify(resp.data, null, 2));
 		const data = resp.data.results || [];
 		res.render('homepage', { title: 'Hockey Players', data });
 	} catch (error) {
-		console.error(error);
+		console.error('HubSpot API error:', error?.response?.data || error);
 		res.render('homepage', { title: 'Hockey Players', data: [] });
 	}
 });
@@ -48,7 +51,7 @@ app.get('/', async (req, res) => {
  * Handle form submission
  */
 app.post('/update-cobj', async (req, res) => {
-	const url = 'https://api.hubapi.com/crm/v3/objects/hockey_player';
+	const url = 'https://api.hubapi.com/crm/v3/objects/hockey_players';
 	const headers = {
 		Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
 		'Content-Type': 'application/json',
@@ -64,7 +67,7 @@ app.post('/update-cobj', async (req, res) => {
 		await axios.post(url, newPlayer, { headers });
 		res.redirect('/');
 	} catch (error) {
-		console.error(error);
+		console.error(error?.response?.data || error);
 		res.redirect('/update-cobj');
 	}
 });

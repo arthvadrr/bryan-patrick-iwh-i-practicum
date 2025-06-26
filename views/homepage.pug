@@ -1,20 +1,21 @@
 extends layout
 
 block content
-  h1= title
-  a(href="/update-cobj") Add to this table
-  if data.length
-    table()
-      thead
-        tr
-          th Name
-          th Goals
-          th Assists
-      tbody
-        each player in data
+  .card
+    h1= title
+    a(href="/update-cobj") Add to this table
+    if data.length
+      table()
+        thead
           tr
-            td= player.properties.name
-            td= player.properties.goals
-            td= player.properties.assists
-  else
-    p No hockey players found.
+            th Name
+            th Goals
+            th Assists
+        tbody
+          each player in data
+            tr
+              td= player.properties.name
+              td= player.properties.goals
+              td= player.properties.assists
+    else
+      p No hockey players found.

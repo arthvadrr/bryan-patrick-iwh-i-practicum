@@ -52,9 +52,6 @@ app.get('/update-cobj', (req, res) => {
  * Create or update hockey player
  */
 app.post('/update-cobj', async (req, res) => {
-	console.log('doing update POST');
-	console.log(JSON.stringify(req.body));
-
 	const { id, name } = req.body;
 	const goals = Number(req.body.goals) || 0;
 	const assists = Number(req.body.assists) || 0;

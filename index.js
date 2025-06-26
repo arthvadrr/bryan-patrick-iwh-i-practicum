@@ -52,8 +52,13 @@ app.get('/update-cobj', (req, res) => {
  * Create or update hockey player
  */
 app.post('/update-cobj', async (req, res) => {
-	const { id, name, goals, assists } = req.body;
-	const baseUrl = 'https://api.hubapi.com/crm/v3/objects/hockey_players';
+	console.log('doing update POST');
+	console.log(JSON.stringify(req.body));
+
+	const { id, name } = req.body;
+	const goals = Number(req.body.goals) || 0;
+	const assists = Number(req.body.assists) || 0;
+	const baseUrl = 'https://api.hubapi.com/crm/v3/objects/p_hockey_players';
 	const headers = {
 		Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
 		'Content-Type': 'application/json',

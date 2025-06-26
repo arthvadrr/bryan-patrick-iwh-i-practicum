@@ -4,14 +4,16 @@ block content
   h1= title
   a(href="/") Back to Home
   form(action="/update-cobj" method="POST")
+    if typeof id !== 'undefined'
+      input(type="hidden" name="id" value=id)
     div
       label(for="name") Name:
-      input(type="text" name="name" id="name" required)
+      input(type="text" name="name" id="name" required value=name || '')
     div
       label(for="goals") Goals:
-      input(type="number" name="goals" id="goals" required min="0")
+      input(type="number" name="goals" id="goals" required value=goals || '')
     div
       label(for="assists") Assists:
-      input(type="number" name="assists" id="assists" required min="0")
+      input(type="number" name="assists" id="assists" required value=assists || '')
     div
-      button(type="submit") Create Hockey Player
+      button(type="submit") #{id ? 'Update' : 'Create'} Hockey Player

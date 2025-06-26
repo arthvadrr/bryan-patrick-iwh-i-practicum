@@ -1,13 +1,13 @@
 {
 	"name": "integrating-with-hubspot-i-foundations-practicum",
 	"version": "1.0.0",
-	"description": "",
+	"description": "A Hockey Player Stats Integration",
 	"main": "index.js",
 	"scripts": {
 		"dev": "nodemon index.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
-	"author": "HubSpot Academy learner",
+	"author": "HubSpot Academy learner Bryan Patrick aka github@arthvadrr",
 	"license": "ISC",
 	"dependencies": {
 		"axios": "^1.10.0",
